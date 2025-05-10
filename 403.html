@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Forbidden | Dipesh Bham</title>
+    <link rel="icon" href="images/Black and White Photography Logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--danger-color);
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        
+        .error-message {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+        
+        .error-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--light-text);
+            max-width: 600px;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-message {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">403</div>
+        <h1 class="error-message">Access Forbidden</h1>
+        <p class="error-description">You don't have permission to access this resource. Please contact the site administrator if you believe this is an error.</p>
+        <div class="error-actions">
+            <a href="/" class="btn primary-btn">Go to Homepage</a>
+            <a href="/#contact" class="btn secondary-btn">Contact Me</a>
+        </div>
+    </div>
+</body>
+</html>

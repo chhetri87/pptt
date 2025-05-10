@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Dipesh Bham</title>
+    <link rel="icon" href="images/Black and White Photography Logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Notification Popup -->
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <div class="notification-icon">
+                <i class="fas fa-check-circle success-icon"></i>
+                <i class="fas fa-exclamation-circle error-icon"></i>
+                <i class="fas fa-info-circle info-icon"></i>
+            </div>
+            <div class="notification-message" id="notification-message"></div>
+        </div>
+        <button class="notification-close">&times;</button>
+    </div>
+    
+    <header class="admin-header">
+        <div class="container">
+            <nav class="admin-nav">
+                <div class="logo">Dipesh Bham | Admin</div>
+                <div class="admin-user">
+                    <span id="admin-username">Admin</span>
+                    <button id="logout-btn" class="btn danger-btn small-btn">Logout</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            <div class="admin-sidebar">
+                <ul class="admin-menu">
+                    <li class="active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</li>
+                    <li data-tab="resources"><i class="fas fa-book"></i> Resources</li>
+                    <li data-tab="messages"><i class="fas fa-envelope"></i> Messages</li>
+                    <li data-tab="settings"><i class="fas fa-cog"></i> Settings</li>
+                </ul>
+                <div class="admin-back">
+                    <a href="index.html" class="btn secondary-btn">View Website</a>
+                </div>
+            </div>
+            
+            <div class="admin-content">
+                <!-- Dashboard Tab -->
+                <div class="admin-tab active" id="dashboard-tab">
+                    <h2>Dashboard</h2>
+                    <div class="admin-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-book"></i></div>
+                            <div class="stat-info">
+                                <h3>Total Resources</h3>
+                                <p id="total-resources">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
+                            <div class="stat-info">
+                                <h3>Model Questions</h3>
+                                <p id="model-questions">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+                            <div class="stat-info">
+                                <h3>Book Notes</h3>
+                                <p id="book-notes">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                            <div class="stat-info">
+                                <h3>Lecture Notes</h3>
+                                <p id="lecture-notes">0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-activity">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list" id="recent-activity-list">
+                            <p class="empty-message">No recent activity.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Resources Tab -->
+                <div class="admin-tab" id="resources-tab">
+                    <div class="tab-header">
+                        <h2>Manage Resources</h2>
+                        <button id="add-resource-btn" class="btn primary-btn"><i class="fas fa-plus"></i> Add New Resource</button>
+                    </div>
+                    
+                    <div class="resource-filters">
+                        <div class="search-box">
+                            <input type="text" id="resource-search" placeholder="Search resources...">
+                            <button id="search-btn"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="filter-options admin-filters">
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="book-notes">Book Notes</button>
+                            <button class="filter-btn" data-filter="model-questions">Model Questions</button>
+                            <button class="filter-btn" data-filter="lecture-notes">Lecture Notes</button>
+                            <button class="filter-btn" data-filter="tutorials">Tutorials</button>
+                        </div>
+                    </div>
+                    
+                    <div class="resources-table-container">
+                        <table class="resources-table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resources-table-body">
+                                <!-- Resources will be loaded here -->
+                            </tbody>
+                        </table>
+                        <p id="no-resources-message" class="empty-message">No resources found.</p>
+                    </div>
+                </div>
+                
+                <!-- Messages Tab -->
+                <div class="admin-tab" id="messages-tab">
+                    <h2>Contact Messages</h2>
+                    <div class="messages-header">
+                        <div class="messages-count">
+                            <span id="total-messages">0</span> messages received
+                        </div>
+                        <div class="messages-actions">
+                            <button id="refresh-messages" class="btn secondary-btn"><i class="fas fa-sync-alt"></i> Refresh</button>
+                        </div>
+                    </div>
+                    <div class="messages-container">
+                        <div class="messages-list" id="messages-list">
+                            <!-- Messages will be loaded here -->
+                        </div>
+                        <p id="no-messages" class="empty-message">No messages available.</p>
+                    </div>
+                </div>
+                
+                <!-- Settings Tab -->
+                <div class="admin-tab" id="settings-tab">
+                    <h2>Admin Settings</h2>
+                    <div class="settings-container">
+                        <div class="settings-card">
+                            <h3>Account Settings</h3>
+                            <form id="account-settings-form">
+                                <div class="form-group">
+                                    <label for="admin-name">Display Name</label>
+                                    <input type="text" id="admin-name" value="Dipesh Bham">
+                                </div>
+                                <div class="form-group">
+                                    <label for="admin-email">Email</label>
+                                    <input type="email" id="admin-email" value="dipesh.bham@example.com">
+                                </div>
+                                <button type="submit" class="btn primary-btn">Save Changes</button>
+                            </form>
+                        </div>
+                        
+                        <div class="settings-card">
+                            <h3>Change Password</h3>
+                            <form id="change-password-form">
+                                <div class="form-group">
+                                    <label for="current-password">Current Password</label>
+                                    <input type="password" id="current-password" placeholder="Enter current password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">New Password</label>
+                                    <input type="password" id="new-password" placeholder="Enter new password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">Confirm Password</label>
+                                    <input type="password" id="confirm-password" placeholder="Confirm new password">
+                                </div>
+                                <div class="form-message" id="password-message"></div>
+                                <button type="submit" class="btn primary-btn">Update Password</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Resource Modal -->
+    <div class="modal" id="resource-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Add New Resource</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="resource-form">
+                    <input type="hidden" id="resource-id">
+                    <div class="form-group">
+                        <label for="resource-title">Title</label>
+                        <input type="text" id="resource-title" placeholder="Enter resource title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resource-category">Category</label>
+                        <select id="resource-category" required>
+                            <option value="">Select a category</option>
+                            <option value="book-notes">Book Notes</option>
+                            <option value="model-questions">Model Questions</option>
+                            <option value="lecture-notes">Lecture Notes</option>
+                            <option value="tutorials">Tutorials</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="resource-content">Content</label>
+                        <textarea id="resource-content" placeholder="Enter resource content" rows="10" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="resource-status">Status</label>
+                        <select id="resource-status">
+                            <option value="published">Published</option>
+                            <option value="draft">Draft</option>
+                        </select>
+                    </div>
+                    <div class="form-message" id="resource-message"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-resource" class="btn secondary-btn">Cancel</button>
+                <button id="save-resource" class="btn primary-btn">Save Resource</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Delete Confirmation Modal -->
+    <div class="modal" id="delete-modal">
+        <div class="modal-content delete-modal-content">
+            <div class="modal-header">
+                <h3>Confirm Delete</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this resource? This action cannot be undone.</p>
+                <input type="hidden" id="delete-resource-id">
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-delete" class="btn secondary-btn">Cancel</button>
+                <button id="confirm-delete" class="btn danger-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
