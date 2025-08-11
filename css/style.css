@@ -162,6 +162,61 @@ nav {
     transition: var(--transition);
 }
 
+/* Dropdown styles for smooth popup and modern look */
+.nav-links .dropdown {
+    position: relative;
+}
+
+.nav-links .dropdown-toggle {
+    cursor: pointer;
+    padding: 0 0px;
+    font-weight: 500;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition: opacity 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1), visibility 0.3s;
+    position: absolute;
+    background: #fff;
+    min-width: 200px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    z-index: 100;
+    top: 100%;
+    left: 0;
+    padding: 12px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.nav-links .dropdown:hover .dropdown-menu,
+.nav-links .dropdown:focus-within .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-links .dropdown-menu li a {
+    display: block;
+    padding: 10px 20px;
+    color: #222;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: 400;
+    transition: background 0.2s, color 0.2s;
+    border-radius: 6px;
+}
+
+.nav-links .dropdown-menu li a:hover {
+    background: #f3f4f6;
+    color: #007bff;
+}
+
 /* Hero Section */
 .hero {
     padding-top: 150px;
@@ -268,6 +323,16 @@ nav {
     justify-content: center;
     gap: 30px;
 }
+/* ...existing code... */
+.sad-emoji {
+    animation: bounce 1.2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-18px);}
+}
+/* ...existing code... */
 
 .skill-item {
     background-color: white;
@@ -354,70 +419,6 @@ nav {
     gap: 10px;
 }
 
-/* Study Resources Section */
-.notes-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
-
-.notes-container.public-view {
-    grid-template-columns: 1fr 1fr;
-}
-
-.resources-header {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.resources-intro h3 {
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-
-.resources-intro p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.admin-note {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.admin-note i {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-}
-
-.admin-note a {
-    color: var(--primary-color);
-    font-weight: 600;
-    text-decoration: underline;
-}
-
-.admin-note a:hover {
-    color: var(--accent-color);
-}
-
-.notes-form, .notes-list, .note-details {
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-}
-
-.notes-form h3, .notes-list h3, .note-details h3 {
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
 .form-group {
     margin-bottom: 20px;
 }
@@ -462,70 +463,6 @@ nav {
     background-color: var(--primary-color);
     color: white;
 }
-
-#notes-list-container {
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.note-item {
-    padding: 15px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: var(--secondary-color);
-    cursor: pointer;
-    transition: var(--transition);
-    position: relative;
-}
-
-.note-item:hover {
-    background-color: #e8e8e8;
-}
-
-.note-item.active {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.note-item .category-tag {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 0.7rem;
-    padding: 3px 8px;
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.1);
-}
-
-.note-item.active .category-tag {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.empty-notes-message {
-    color: var(--light-text);
-    font-style: italic;
-}
-
-.resource-category {
-    display: inline-block;
-    padding: 5px 10px;
-    background-color: var(--secondary-color);
-    border-radius: 20px;
-    font-size: 0.8rem;
-    margin-bottom: 15px;
-}
-
-#note-detail-content {
-    margin-top: 20px;
-    line-height: 1.8;
-    white-space: pre-wrap;
-}
-
-.note-actions {
-    margin-top: 30px;
-    text-align: right;
-}
-
 /* Contact Section */
 .contact {
     background-color: var(--dark-bg);
