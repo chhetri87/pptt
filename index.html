@@ -25,23 +25,44 @@
 <body>
     <header>
         <div class="container">
-            <nav>
-                <div class="logo">Dipesh Bham</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#notes">Notes</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="https://dipesh.free.nf/login.html" id="login-btn" class="login-link"><i class="fas fa-user"></i> Login</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
+<nav>
+    <div class="logo">_dipesh.x</div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle">Class 11 <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="class11-english-notes.html">Class 11 English Notes</a></li>
+                <li><a href="class11-nepali-notes.html">Class 11 Nepali Notes</a></li>
+                <li><a href="books-pdf-download.html">Books PDF Download</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle">Class 12 <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="class12-english-notes.html">Class 12 English Notes</a></li>
+                <li><a href="class12-nepali-notes.html">Class 12 Nepali Notes</a></li>
+                <li><a href="books-pdf-download-12.html">Books PDF Download</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle">Model Questions <i class="fas fa-caret-down"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="class11-questions.html">Class 11 Questions</a></li>
+                <li><a href="class12-questions.html">Class 12 Questions</a></li>
+            </ul>
+        </li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
         </div>
     </header>
 
@@ -170,42 +191,6 @@
         </div>
     </section>
 
-    <section id="notes" class="notes">
-        <div class="container">
-            <h2 class="section-title">Study Resources</h2>
-            <div class="notes-container public-view">
-                <div class="resources-header">
-                    <div class="resources-intro">
-                        <h3>Browse Study Materials</h3>
-                        <p>Access book notes, model questions, lecture notes, and tutorials shared by Dipesh Bham.</p>
-                        <div class="admin-note">
-                            <i class="fas fa-info-circle"></i>
-                            <span>Are you Dipesh? <a href="#" id="login-resources">Login</a> to add new resources.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="notes-list">
-                    <div class="filter-options">
-                        <button class="filter-btn active" data-filter="all">All</button>
-                        <button class="filter-btn" data-filter="book-notes">Book Notes</button>
-                        <button class="filter-btn" data-filter="model-questions">Model Questions</button>
-                        <button class="filter-btn" data-filter="lecture-notes">Lecture Notes</button>
-                        <button class="filter-btn" data-filter="tutorials">Tutorials</button>
-                    </div>
-                    <div id="notes-list-container">
-                        <!-- Notes will be displayed here -->
-                        <p class="empty-notes-message">No resources available yet. Check back soon!</p>
-                    </div>
-                </div>
-                <div class="note-details" id="note-details">
-                    <h3 id="note-detail-title">Select a resource to view</h3>
-                    <div id="note-detail-category" class="resource-category"></div>
-                    <div id="note-detail-content"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Contact Me</h2>
@@ -270,39 +255,6 @@
             <p>&copy; 2025 Dipesh Bham. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- Notification Popup -->
-    <div class="notification" id="notification">
-        <div class="notification-content">
-            <div class="notification-icon">
-                <i class="fas fa-check-circle success-icon"></i>
-                <i class="fas fa-exclamation-circle error-icon"></i>
-                <i class="fas fa-info-circle info-icon"></i>
-            </div>
-            <div class="notification-message" id="notification-message"></div>
-        </div>
-        <button class="notification-close">&times;</button>
-    </div>
-    
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4565311859472643"
-     crossorigin="anonymous"></script>
-<!-- website ad -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:90px"
-     data-ad-client="ca-pub-4565311859472643"
-     data-ad-slot="8398061234"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-        <amp-ad
-     layout="fixed"
-     width="728"
-     height="90"
-     type="adsense"
-     data-ad-client="ca-pub-4565311859472643"
-     data-ad-slot="8398061234">
-</amp-ad>
-
     <script src="js/auth.js"></script>
     <script src="js/script.js"></script>
     <script src="js/animation.js"></script>
